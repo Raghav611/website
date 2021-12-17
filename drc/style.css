@@ -1,0 +1,309 @@
+@import url("https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gideon+Roman&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 24px;
+}
+
+body nav {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  width: 100vw;
+  height: 15vh;
+}
+body nav .logo-part {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body nav .logo-part .logo a {
+  font-size: 1.9rem;
+  color: #292929;
+  font-family: "Bakbak One", cursive;
+  text-decoration: none;
+  letter-spacing: -1px;
+}
+body nav .links {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+body nav .links ul {
+  padding-left: 45%;
+  width: 80%;
+  height: inherit;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+body nav .links ul li {
+  list-style-type: none;
+}
+body nav .links ul li a {
+  color: black;
+  font-size: 0.6rem;
+  text-decoration: none;
+  font-family: "Nunito Sans", sans-serif;
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+body nav .links ul .burger {
+  margin-left: 5%;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  width: auto;
+  height: 25%;
+  z-index: 9999;
+  transition: 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+body nav .links ul .burger .line {
+  margin-bottom: 25%;
+  width: 25px;
+  height: 2px;
+  background-color: #292929;
+  display: block;
+}
+body nav .links ul .disappear {
+  display: none !important;
+}
+body nav .links ul .burger:hover {
+  cursor: pointer;
+}
+body nav .links ul li::after {
+  content: "";
+  width: 0px;
+  height: 1px;
+  background-color: rgba(63, 63, 63, 0.767);
+  display: block;
+  transition: 0.8s cubic-bezier(0, 0.27, 0.69, 0.78);
+}
+body nav .links ul li:hover::after, body nav .links ul li:focus::after {
+  animation: underline 0.2s forwards;
+}
+@keyframes underline {
+  0% {
+    width: 0%;
+  }
+  40% {
+    width: 20%;
+  }
+  70% {
+    width: 60%;
+  }
+  100% {
+    width: inherit;
+  }
+}
+body .menu {
+  z-index: 2;
+  width: 40vw;
+  height: 100vh;
+  position: fixed;
+  right: -100%;
+  top: 0%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 129, 129, 0.705);
+  transition: 1.2s ease-out;
+}
+body .menu ul {
+  height: 90%;
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  justify-items: center;
+}
+body .menu ul li {
+  list-style-type: none;
+}
+body .menu ul li a {
+  color: black;
+  font-size: 0.95rem;
+  text-decoration: none;
+  font-family: "Nunito Sans", sans-serif;
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+body .menu ul .burger-active {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  align-self: center;
+  width: auto;
+  height: 3.75vh;
+  z-index: 9999;
+}
+body .menu ul .burger-active .line {
+  margin-bottom: 25%;
+  width: 25px;
+  height: 2px;
+  background-color: #292929;
+  display: block;
+}
+body .active {
+  transition: 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+  right: 0%;
+}
+body .landing-page {
+  width: 100vw;
+  height: 80vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+body .landing-page .text-area {
+  display: grid;
+  grid-template-rows: 1fr 1.2fr;
+}
+body .landing-page .text-area h1 {
+  font-family: "Bakbak One", cursive;
+  font-size: 2.2rem;
+  display: flex;
+  align-items: flex-end;
+  opacity: 0.9;
+  padding: 5%;
+  text-transform: uppercase;
+}
+body .landing-page .text-area h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: flex-start;
+  padding: 5%;
+}
+body .landing-page .image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 4%;
+}
+body .landing-page .image img {
+  width: 60%;
+  margin-right: 1%;
+}
+
+.fade {
+  opacity: 0.6;
+  transition: 0.5s ease-in;
+}
+
+.color {
+  color: #6102ce;
+  margin-left: 2.5%;
+}
+
+@media only screen and (max-width: 1050px) {
+  body nav .logo-part .logo a {
+    font-size: 1.69rem;
+  }
+  body .landing-page .image img {
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 950px) {
+  body nav {
+    grid-template-columns: 1.25fr 4fr;
+  }
+  body nav .logo-part .logo a {
+    font-size: 1.69rem;
+  }
+  body nav .links ul {
+    padding-left: 35%;
+  }
+}
+@media only screen and (max-width: 800px) {
+  :root {
+    font-size: 20px;
+  }
+
+  .links ul li a {
+    font-size: 0.65rem !important;
+  }
+
+  .landing-page {
+    height: 100vh !important;
+    grid-template-columns: unset !important;
+    grid-template-rows: 1fr 4fr;
+  }
+  .landing-page .image {
+    justify-content: center !important;
+  }
+}
+@media only screen and (max-width: 750px) {
+  nav {
+    grid-template-columns: 1fr 2fr !important;
+  }
+  nav .links ul li {
+    display: none;
+  }
+  nav .links ul .burger {
+    display: flex !important;
+  }
+
+  .landing-page .image img {
+    width: 75% !important;
+  }
+}
+@media only screen and (max-width: 550px) {
+  nav {
+    grid-template-columns: 1fr 1.6fr !important;
+  }
+
+  .menu {
+    width: 50vw !important;
+  }
+
+  .landing-page {
+    height: 100vh !important;
+    grid-template-columns: unset !important;
+    grid-template-rows: 1fr 3.5fr;
+  }
+  .landing-page .image {
+    justify-content: center !important;
+    align-items: flex-start !important;
+    padding-top: 15%;
+  }
+}
+@media only screen and (max-width: 500px) {
+  nav {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .landing-page .image img {
+    width: 80% !important;
+  }
+}
+@media only screen and (max-width: 400px) {
+  :root {
+    font-size: 18px;
+  }
+
+  .menu {
+    width: 60vw !important;
+  }
+}
+@media only screen and (max-width: 350px) {
+  :root {
+    font-size: 14px;
+  }
+
+  .landing-page {
+    grid-template-rows: 1fr 2fr;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
