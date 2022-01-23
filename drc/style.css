@@ -9,12 +9,17 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 :root {
   font-size: 24px;
 }
 
+body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
 body nav {
   display: grid;
   grid-template-columns: 1fr 4fr;
@@ -108,8 +113,23 @@ body nav .links ul li:hover::after, body nav .links ul li:focus::after {
     width: inherit;
   }
 }
+body .menu-copy {
+  z-index: 69;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.6);
+  position: fixed;
+  right: -100%;
+  top: 0%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 129, 129, 0.705);
+  transition: 1.2s ease-out;
+  opacity: 0;
+}
 body .menu {
-  z-index: 2;
+  z-index: 420;
   width: 40vw;
   height: 100vh;
   position: fixed;
@@ -159,6 +179,22 @@ body .active {
   transition: 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
   right: 0%;
 }
+body .activecopy {
+  transition: 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+  right: 0%;
+  animation: fade-bg 1s linear forwards;
+}
+@keyframes fade-bg {
+  0% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.4;
+  }
+}
 body .landing-page {
   width: 100vw;
   height: 80vh;
@@ -195,6 +231,73 @@ body .landing-page .image img {
   width: 60%;
   margin-right: 1%;
 }
+body .about {
+  margin-top: 10%;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body .about .about-title {
+  height: 30%;
+  font-family: "Bakbak One", cursive;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .about .about-content {
+  padding: 5%;
+  height: 70%;
+  width: 80%;
+  background: white;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+}
+body .about .about-content .content-area {
+  font-size: 1rem;
+  height: 100%;
+  position: relative;
+}
+body .about .about-content .content-area .content1 {
+  height: 100%;
+  width: 100%;
+  font-size: 1rem;
+  z-index: 3;
+  position: absolute;
+}
+body .about .about-content .content-area .content2 {
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  position: absolute;
+}
+body .about .about-content .content-area .content3 {
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+body .about .about-content .switching-area {
+  height: 100%;
+  padding-left: 10%;
+  font-size: 1.3rem;
+  font-family: "Bakbak One", cursive;
+}
+body .about .about-content .switching-area ul {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+body .about .about-content .switching-area ul li {
+  padding-left: 2%;
+  margin-bottom: 5%;
+  list-style-type: none;
+  color: rgba(63, 63, 63, 0.767);
+}
+body .about .about-content .switching-area ul li:hover {
+  cursor: pointer;
+}
 
 .fade {
   opacity: 0.6;
@@ -206,12 +309,51 @@ body .landing-page .image img {
   margin-left: 2.5%;
 }
 
+.disappear {
+  animation: disappear 0.1s linear forwards;
+}
+
+@keyframes disappear {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.highlighted {
+  animation: highlighted 0.4s linear forwards;
+}
+
+@keyframes highlighted {
+  from {
+    color: rgba(63, 63, 63, 0.767);
+  }
+  to {
+    color: black;
+  }
+}
 @media only screen and (max-width: 1050px) {
   body nav .logo-part .logo a {
     font-size: 1.69rem;
   }
   body .landing-page .image img {
     width: 70%;
+  }
+  body .about .about-title {
+    font-size: 1.8rem;
+  }
+  body .about .about-content {
+    height: 80% !important;
+  }
+  body .about .about-content .switching-area ul li {
+    font-size: 1.2rem;
+  }
+  body .about .about-content .content-area {
+    font-size: 1rem;
   }
 }
 @media only screen and (max-width: 950px) {
@@ -223,6 +365,20 @@ body .landing-page .image img {
   }
   body nav .links ul {
     padding-left: 35%;
+  }
+  body .about .about-title {
+    font-size: 1.8rem;
+  }
+  body .about .about-content {
+    margin-top: 5%;
+    padding: 3%;
+    height: 100% !important;
+  }
+  body .about .about-content .switching-area ul li {
+    font-size: 1.2rem;
+  }
+  body .about .about-content .content-area {
+    font-size: 1rem;
   }
 }
 @media only screen and (max-width: 800px) {
@@ -256,6 +412,39 @@ body .landing-page .image img {
 
   .landing-page .image img {
     width: 75% !important;
+  }
+
+  .about .about-title {
+    height: 15% !important;
+  }
+  .about .about-content {
+    display: flex !important;
+    flex-direction: column-reverse !important;
+    justify-content: start !important;
+    grid-template-columns: unset !important;
+    grid-template-rows: 1.5fr 1fr !important;
+  }
+  .about .about-content .switching-area {
+    padding-left: 0 !important;
+    height: 10% !important;
+    grid-row: 1;
+    display: flex;
+    justify-content: center;
+  }
+  .about .about-content .switching-area ul {
+    width: 100% !important;
+    flex-direction: unset !important;
+    justify-self: center;
+    justify-content: center;
+  }
+  .about .about-content .switching-area ul li {
+    font-size: 1.2rem;
+    padding: 2%;
+  }
+  .about .about-content .content-area {
+    margin-top: 10%;
+    grid-row: 2;
+    font-size: 1rem;
   }
 }
 @media only screen and (max-width: 550px) {
